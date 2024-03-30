@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Homepage</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+    <!-- JavaScript Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
+</head>
+
+<body id="home">
+    <div class="main">
+        <div class="header">
+            <div class="icon">
+                <img class="logo" src="../static/library-low-resolution-logo-color-on-transparent-background (1).png" width="150px" height="auto" href="../templates/home.html">
+            </div>
+
+            <!-- <div class="menu">
+                <a href="{{url_for('Profile')}}" class="header__link">
+                    <span class="material-icons">account_circle</span></a> -->
+                <!-- <a href="#" class="header__link">
+                    <span class="material-icons">settings</span></a> </li> -->
+                <!-- <a href="{{url_for('index') }}" class="header__link">
+                    <span class="material-icons">logout</span></a>
+            </div> -->
+
+            <div class="search">
+                <input class="srch1" id = "searchbar" onkeyup = "search_job()"type="search" name="search" placeholder="Search for Jobs">
+                <a href="#"><button class="butn" onclick="search_job()">Search</button></a>
+            </div>
+        </div>
+
+<!-- ----------------------------NAvigation Bar Start--------------------------- -->
+    <!-- ----------------------------NAvigation Bar Start--------------------------- -->
+    <!-- <div class="navbars">
+        <a data-active = "home" href= "{{ url_for('Home')}}"class="navbar__link">
+            <span class="material-icons">home</span>Home
+        </a>
+        <a data-active = "amre" href="{{ url_for('AMRE')}}" class="navbar__link">
+            <span class="material-icons">science</span>AMRE
+        </a>
+
+    </div> -->
+<!-- ----------------------------NAvigation Bar End--------------------------- -->
+
+<!-- ----------------------------- Job Listing Start--------------------------------- -->
+
+<ol style="list-style: none;">  
+      
+    <li><div class="job-list" id="open">
+            <div class="job_card">
+                <div class="job_name">
+                <div class="job_detail">
+                    <!-- <h4>Humanities</h4> -->
+                    <h3>Check In Books</h3>
+                </div>
+            </div>
+            <div class="job_label">
+                <a class="label_1" href="#">Wooster Library</a>
+            </div>
+        </div>
+    </div></li>
+
+    <li><div class="job-list" id="open1">
+            <div class="job_card">
+                <div class="job_name">
+                <div class="job_detail">
+                    <!-- <h4>Humanities</h4> -->
+                    <h3>Check Out Books</h3>
+                </div>
+            </div>
+            <div class="job_label">
+                <a class="label_1" href="#">Wooster Library</a>
+            </div>
+        </div>
+    </div></li>
+    </ol>
+<!-- ------------------------------------Job Listing End ------------------>
+
+<!-- ------------------------------------Job Modals Start--------------- -->
+        <div class="modal_container" id="modal_container">
+            <div class="modal">
+                <button class="exit" id="close">
+                    <a id="close" href="">
+                        <span class="material-icons">close</span>
+                    </a>    
+                </button>
+                <h1>Check In Your Book</h1>
+
+                <form id="worker">
+                    <div>
+                    <input type="text" class="srch" name="Title" placeholder="Insert Title">
+                    <br>
+                    <input type="text" id = "searchbar" class="srch" name="Author" placeholder="Insert Author">
+                    <br>
+                </div>
+                <br>
+                <div>
+                    <br>
+                    <button type="submit">Check In</button>
+                </div>
+                </form>
+
+                <!-- <button class="applied" id="applied">applied</button>                     -->
+
+            </div>            
+        </div>
+
+        <div class="modal_container1" id="modal_container1">
+            <div class="modal">
+                <button class="exit" id="close">
+                    <a id="close" href="">
+                        <span class="material-icons">close</span>
+                    </a>    
+                </button>
+                <h1>Check Out Your Book</h1>
+
+                <form id="worker">
+                    <div>
+                    <input type="text" class="srch" name="Title" placeholder="Insert Title">
+                    <br>
+                    <input type="text" id = "searchbar" class="srch" name="Author" placeholder="Insert Author">
+                    <br>
+                </div>
+                <br>
+                <div>
+                    <br>
+                    <button type="submit">Check Out</button>
+                </div>
+                </form>
+
+                <!-- <button class="applied" id="applied">applied</button>                     -->
+
+            </div>            
+        </div>
+
+<!-- ------------------------------------Job Modals End ------------------------ -->
+
+<!------------------------------Footer start------------------->
+
+        <footer id="colophon" class="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+		
+            <div class="footer-bar">
+                <div class="gutenix-container-fluid">
+                    <div class="site-info">
+                        
+                        <div class="site-info__holder">
+                                            <div class="footer-copyright">Copyright © Library</div>			</div>
+    
+                        <div class="social-list social-list--footer social-list--icon">
+                            <ul id="social-list-1" class="social-list__items inline-list">
+                                <li id="menu-item-300" class="facebook"><a href="https://www.facebook.com/CollegeofWooster"><span class="screen-reader-text">Facebook</span></a></li>
+                                <li id="menu-item-301" class="instagram"><a href="https://www.instagram.com/wooinsider/"><span class="screen-reader-text">Instagram</span></a></li>
+                                <!-- <li id="menu-item-302" class="youtube"><a href="http://www.youtube.com/woosteredu"><span class="screen-reader-text">YouTube</span></a></li>
+                                <li id="menu-item-303" class="twitter"><a href="https://twitter.com/woosteredu"><span class="screen-reader-text">Twitter</span></a></li> -->
+                            </ul>
+                        </div>		
+    
+                    </div>
+                </div>
+            </div>
+        </footer>
+<!----------------------------------------Footer End-------------------------------->
+
+
+</div>
+<script src="../static/active.js"></script>
+<script src="../static/main.js"></script>
+</body>
+</html>

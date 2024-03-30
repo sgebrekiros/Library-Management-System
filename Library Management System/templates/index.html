@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Worker and Patron</title>
+</head>
+    <body>
+        <form id="search-form" method="post">
+            <input type="text" id="search-input" name="title" placeholder="Search by title">
+            <button type="submit">Search</button>
+        </form>
+        <span id="search-result"></span>
+        
+        <!-- Add the existing form for adding entries here -->
+    <h1>Add Worker</h1>
+    <form id="book-form">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="author" placeholder="Author">
+        <button type="submit">checkin</button>
+    </form>
+        <h1>Add Patron</h1>
+    <form id="patron-form">
+        <input type="text" name="title" placeholder="Username">
+        <input type="text" name="author" placeholder="Password">
+        <button type="submit">Add Patron</button>
+    </form>
+        <h1>Delete Book</h1>
+    <form id="deletebookForm">
+        <label for="deleteUsername">Username:</label>
+        <input type="text" id="deleteUsername" name="title" placeholder="title" required>
+        <!-- <input type="text" name="author" placeholder= "author"> -->
+        <button type="submit">Delete User</button>
+    </form>
+
+
+        <script>
+            document.getElementById('book-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const response = await fetch('/check_in', {
+                    method: 'POST',
+                    body: formData
+                });
+                alert(await response.text());
+                });
+                
+                
+            document.getElementById('patron-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const response = await fetch('/add_patron', {
+                    method: 'POST',
+                    body: formData
+                });
+                alert(await response.text());
+                });
+            
+            document.getElementById("search-form").addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const searchInput = document.getElementById("search-input");
+                const username = searchInput.value;
+                const searchResult = document.getElementById("search-result");
+
+                if (username.trim() === "") {
+                    searchResult.textContent = "Please enter a title.";
+                    return;
+                }
+
+                const response = await fetch("/search", {
+                    method: "POST",
+                    body: new FormData(event.target),
+                });
+
+                const resultText = await response.text();
+                searchResult.textContent = resultText;
+            });
+
+            document.getElementById("deletebookForm").addEventListener("submit", async function (event) {
+                event.preventDefault();
+                
+                const deleteUsername = document.getElementById("deleteUsername").value;
+                
+                const response = await fetch("/delete", {
+                    method: "POST",
+                    body: new FormData(event.target),
+                });
+                const result = await response.text();
+                
+                alert(result);
+                });
+
+        </script>
+    </body>
+</html>
